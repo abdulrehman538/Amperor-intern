@@ -12,5 +12,7 @@ print("Thats queue")
 queue.append(1)
 queue.append(2)
 queue.append(3)
-print(queue.pop(0)) #it will erase the first element and print.
+queue.append(4)
+queue.append(5)
+print(queue)
 print(queue)
