@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Person</title>
+    <style>
+    button {
+        background-color: #4CAF50;   /* green */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+    <h1>Search Person 🔍</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="id" placeholder="Enter ID">
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+    {% if result %}
+        <h2>Person Details:</h2>
+        <p><strong>Name:</strong> {{ result.name }}</p>
+        <p><strong>ID:</strong> {{ result.id }}</p>
+        <p><strong>Department:</strong> {{ result.department }}</p>
+        <p><strong>Gender:</strong> {{ result.gender }}</p>
+    {% elif result == None %}
+        <p>No result found</p>
+    {% endif %}
+
+</body>
+</html>
